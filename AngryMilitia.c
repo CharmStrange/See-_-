@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define ROW 9
 #define COLUMN 9
@@ -21,6 +22,20 @@ void initialize_Farmland() {
             Farm[row][column].moisture = 1;
             Farm[row][column].light = 1;
             Farm[row][column].scale = 1;
+            Farm[row][column].condition = (Farm[row][column].fertility + Farm[row][column].moisture + Farm[row][column].light + Farm[row][column].scale) / 4;
+        }
+    }
+}
+
+void random_initialize_Farmland() {
+    srand(time(NULL)); // seed for random number generation
+
+    for (unsigned char row = 0; row < ROW; row++) {
+        for (unsigned char column = 0; column < COLUMN; column++) {
+            Farm[row][column].fertility = rand() % 10; // Random value between 0 and 9
+            Farm[row][column].moisture = rand() % 10;
+            Farm[row][column].light = rand() % 10;
+            Farm[row][column].scale = rand() % 10;
             Farm[row][column].condition = (Farm[row][column].fertility + Farm[row][column].moisture + Farm[row][column].light + Farm[row][column].scale) / 4;
         }
     }
@@ -77,7 +92,7 @@ int main() {
     initialize_Farmland();
 
     unsigned char available = is_available();
-    printf("Number of available cells: %d\n", available);
+    printf("Number of available farmlands: %d\n", available);
 
     return 0;
 }
