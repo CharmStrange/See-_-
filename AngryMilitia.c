@@ -73,8 +73,8 @@ unsigned char is_available() {
 
     for (unsigned char row = 0; row < ROW; row++) {
         for (unsigned char column = 0; column < COLUMN; column++) {
-            Farmland currentCell = Farm[row][column];
-            if (currentCell.condition >= 4) {
+            Farmland currentLand = Farm[row][column];
+            if (currentLand.condition >= 4) {
                 condition++;
                 update_neighbour_cells(row, column);
             }
@@ -89,7 +89,8 @@ int main() {
         exit(1);
     }
 
-    initialize_Farmland();
+    //initialize_Farmland();
+    random_initialize_Farmland();
 
     unsigned char available = is_available();
     printf("Number of available farmlands: %d\n", available);
