@@ -11,13 +11,15 @@
 #define initialize_v2(parameter_1) do {for (unsigned char r = 0; r < 3; r++){ \
             for (unsigned char c = 0; c < 3; c++){ \
                 Pixels[r][c] = (Spot){0, NULL};} \
-            } parameter_1(); \
+            } printf("\nSpots successfully created!\n"); \
+            parameter_1(); \
         } while (0)
         
 #define initialize_v3(parameter_1, parameter_2) do {for (unsigned char r = 0; r < 3; r++){ \
             for (unsigned char c = 0; c < 3; c++){ \
                 Pixels[r][c] = (Spot){0, NULL};} \
-            } parameter_1(); parameter_2(); \
+            } printf("\nSpots successfully created!\n"); \
+            parameter_1(); parameter_2(); \
         } while (0)
 
 #define medium(_v1, _v2, _v3, name, ...) name
