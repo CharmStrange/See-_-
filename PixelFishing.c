@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 // for Option Control
 #define initialize_v1() do {for (unsigned char r = 0; r < 3; r++){ \
@@ -35,19 +36,6 @@ typedef struct Spot {
 
 Spot Pixels[3][3];
 
-// connecting
-Pixels[0][0].ptr = &Pixels[0][1];
-Pixels[0][1].ptr = &Pixels[0][2];
-Pixels[0][2].ptr = &Pixels[1][0];
-    
-Pixels[1][0].ptr = &Pixels[1][1];
-Pixels[1][1].ptr = &Pixels[1][2];
-Pixels[1][2].ptr = &Pixels[2][0];
-    
-Pixels[2][0].ptr = &Pixels[2][1];
-Pixels[2][1].ptr = &Pixels[2][2];
-Pixels[2][2].ptr = &Pixels[0][0];
-
 void *simulate(){
     printf("\nSimulation\n");
 }
@@ -63,7 +51,42 @@ void *attribute(){
     printf("\n");
 }
 
+void *setState(){
+    for (unsigned char r = 0; r < 3; r++){
+        for (unsigned char c = 0; c < 3; c++){
+            unsigned char status = rand()%255; 
+            Pixels[r][c].status = status;
+        }
+    }
+    
+    // connecting
+    Pixels[0][0].ptr = &Pixels[0][1];
+    Pixels[0][1].ptr = &Pixels[0][2];
+    Pixels[0][2].ptr = &Pixels[1][0];
+    
+    Pixels[1][0].ptr = &Pixels[1][1];
+    Pixels[1][1].ptr = &Pixels[1][2];
+    Pixels[1][2].ptr = &Pixels[2][0];
+    
+    Pixels[2][0].ptr = &Pixels[2][1];
+    Pixels[2][1].ptr = &Pixels[2][2];
+    Pixels[2][2].ptr = &Pixels[0][0];
+}  
+
+void *printState(){
+    printf("\n");
+    for (unsigned char r = 0; r < 3; r++){
+        for (unsigned char c = 0; c < 3; c++){
+            printf("%d\n", Pixels[r][c].status);
+            printf("%p\n", Pixels[r][c].ptr);
+        }
+    }
+    printf("\n"); 
+}
+
 int main() {
+    srand(time(NULL));
+    
     // max 2 parameters can be entered in initialize ... none available, one available, two available, three NO!
     // function parameters of initialize() method :
     // attribute
@@ -72,5 +95,7 @@ int main() {
     initialize();
     initialize(attribute);
     initialize(attribute, simulate);
+    
+    initialize(setState, printState);
     return 0;
 }
