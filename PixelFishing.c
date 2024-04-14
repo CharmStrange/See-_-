@@ -35,6 +35,19 @@ typedef struct Spot {
 
 Spot Pixels[3][3];
 
+// connecting
+Pixels[0][0].ptr = &Pixels[0][1];
+Pixels[0][1].ptr = &Pixels[0][2];
+Pixels[0][2].ptr = &Pixels[1][0];
+    
+Pixels[1][0].ptr = &Pixels[1][1];
+Pixels[1][1].ptr = &Pixels[1][2];
+Pixels[1][2].ptr = &Pixels[2][0];
+    
+Pixels[2][0].ptr = &Pixels[2][1];
+Pixels[2][1].ptr = &Pixels[2][2];
+Pixels[2][2].ptr = &Pixels[0][0];
+
 void *simulate(){
     printf("\nSimulation\n");
 }
