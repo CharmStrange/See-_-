@@ -113,6 +113,7 @@ void Fishing(unsigned char r, unsigned char c){
         Pixels[r][c].status--;
         fishes++;
         printf("\nYou got fish!\n");
+        printf(" ~~ ><(((º> ~~~\n");
     }
     else {
         printf("\nThere was nothing... [%f]\n", probability);
