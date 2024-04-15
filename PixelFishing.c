@@ -3,6 +3,22 @@
 #include <math.h>
 #include <time.h>
 
+#define EULER_NUMBER 2.71828
+#define EULER_NUMBER_F 2.71828182846
+#define EULER_NUMBER_L 2.71828182845904523536
+
+double sigmoid(double n) {
+    return (1 / (1 + pow(EULER_NUMBER, -n)));
+}
+
+float sigmoidf(float n) {
+    return (1 / (1 + powf(EULER_NUMBER_F, -n)));
+}
+
+long double sigmoidl(long double n) {
+    return (1 / (1 + powl(EULER_NUMBER_L, -n)));
+}
+
 // for Option Control
 #define initialize_v1() do {for (unsigned char r = 0; r < 3; r++){ \
             for (unsigned char c = 0; c < 3; c++){ \
@@ -90,15 +106,15 @@ void *printState(){
 void Fishing(unsigned char r, unsigned char c){
     unsigned char parameter = rand()%128; 
     double probability;
-    probability = 1 / (1 + pow(2.7182818284590451, parameter));
+    probability = sigmoid(EULER_NUMBER);
     
-    if ( (probability > 0.5) && (Pixels[r][c].status != 0) ){
+    if ( (probability > 0.7) && (Pixels[r][c].status != 0) ){
         Pixels[r][c].status--;
         fishes++;
-        
+        printf("\nYou got fish!\n");
     }
     else {
-        
+        printf("\nThere was nothing... [%f]\n", probability);
     }
 }
 
