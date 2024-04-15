@@ -104,11 +104,12 @@ void *printState(){
 }
 
 void Fishing(unsigned char r, unsigned char c){
-    unsigned char parameter = rand()%128; 
+    char parameter1 = rand()%127;
+    char parameter2 = rand()%127;
     double probability;
-    probability = sigmoid(EULER_NUMBER);
+    probability = sigmoid(parameter1 - parameter2);
     
-    if ( (probability > 0.7) && (Pixels[r][c].status != 0) ){
+    if (probability > 0.5) {
         Pixels[r][c].status--;
         fishes++;
         printf("\nYou got fish!\n");
