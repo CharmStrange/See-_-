@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <time.h>
 
 // for Option Control
@@ -34,14 +35,16 @@ typedef struct Spot {
     struct Spot *ptr;
 } Spot;
 
+unsigned char fishes = 0;
 Spot Pixels[3][3];
 
+void Fishing(unsigned char r, unsigned char c);
 void *simulate(){
     printf("\nSimulation\n");
+    Fishing(0, 0);
 }
 
 void *attribute(){
-    printf("\n");
     for (unsigned char r = 0; r < 3; r++){
         for (unsigned char c = 0; c < 3; c++){
             printf("/ %p ", &Pixels[r][c]);
@@ -78,10 +81,25 @@ void *printState(){
     for (unsigned char r = 0; r < 3; r++){
         for (unsigned char c = 0; c < 3; c++){
             printf("%d\n", Pixels[r][c].status);
-            printf("%p\n", Pixels[r][c].ptr);
+            printf("[this %p] -> [%p]\n\n", &Pixels[r][c], Pixels[r][c].ptr);
         }
     }
     printf("\n"); 
+}
+
+void Fishing(unsigned char r, unsigned char c){
+    unsigned char parameter = rand()%128; 
+    double probability;
+    probability = 1 / (1 + pow(2.7182818284590451, parameter));
+    
+    if ( (probability > 0.5) && (Pixels[r][c].status != 0) ){
+        Pixels[r][c].status--;
+        fishes++;
+        
+    }
+    else {
+        
+    }
 }
 
 int main() {
@@ -91,11 +109,12 @@ int main() {
     // function parameters of initialize() method :
     // attribute
     // simulate
+    // setState
+    // printState
     
     initialize();
     initialize(attribute);
     initialize(attribute, simulate);
-    
     initialize(setState, printState);
     return 0;
 }
