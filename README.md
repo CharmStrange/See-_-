@@ -12,6 +12,6 @@ You got fish!
  ~~ ><(((º> ~~~
 ```
 
-[Hammurabi 1968](Hamurabi.c)
+[Hammurabi 1968](Hammurabi.c)
 
-[](AngryMilitia.c)
+[Basic Militia Rebeliion](AngryMilitia.c)
