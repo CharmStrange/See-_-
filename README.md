@@ -26,4 +26,10 @@
 
 ---
 
+[Basic Artifact Maker](ArtifactBuilder.c)
+
+![image](https://github.com/CharmStrange/See/assets/105769152/93975776-4503-4b2e-aa5d-fd32be6a0287)
+
+---
+
 </div>
