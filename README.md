@@ -11,6 +11,7 @@ Spots successfully created!
 You got fish!
  ~~ ><(((º> ~~~
 ```
+...
 
 [Hammurabi 1968](Hammurabi.c)
 ```
@@ -26,6 +27,7 @@ YOU NOW HAVE 2800 BUSHELS IN STORE.
 LAND IS TRADING AT 37 BUSHELS PER ACRE.
 HOW MANY ACRES DO YOU WISH TO BUY? 
 ```
+...
 
 [Basic Militia Rebeliion](AngryMilitia.c)
 ```
