@@ -15,19 +15,19 @@ void Control( void* function() ){
     function();
 }
 
-void* Alpha(){
+void* Alpha( Artifact state ){
     
 }
 
-void* Beta(){
+void* Beta( Artifact state ){
     
 }
 
-void* Gamma(){
+void* Gamma( Artifact state ){
     
 }
 
-void* Delta(){
+void* Delta( Artifact state ){
     
 }
 
