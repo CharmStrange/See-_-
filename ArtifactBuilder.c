@@ -9,7 +9,13 @@ typedef struct Artifact{
     UC delta;
     
     float sigmoid;
+    char signature;
 } Artifact;
+
+char *greekAlphabet[21] = {
+        "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu",
+        "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Phi", "Chi", "Psi", "Omega"
+    };
  
 void Control( void* function() ){
     function();
@@ -32,10 +38,12 @@ void* Delta( Artifact state ){
 }
 
 int main(){
-    Control( Alpha );
-    Control( Beta );
-    Control( Gamma );
-    Control( Delta );
+    Artifact test = { 'A', 'B', 'G', 'D', 0.5, greekAlphabet[15] };
+
+    Control( Alpha(test) );
+    Control( Beta(test) );
+    Control( Gamma(test) );
+    Control( Delta(test) );
 
     return 0;
 }
