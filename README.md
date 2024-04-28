@@ -1,4 +1,7 @@
-For C source code training, coding something.
+### For C source code training, coding something. 
+
+![image](https://github.com/CharmStrange/See/assets/105769152/f6895700-dbca-470e-bfe1-a57f6e6e42d8)
+
 
 [Basic Fishing Simulator](PixelFishing.c)
 ```
