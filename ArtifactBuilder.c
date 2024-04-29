@@ -3,22 +3,25 @@
 
 typedef unsigned char UC;
 typedef struct Artifact{
-    UC alpha;
-    UC beta;
-    UC gamma;
-    UC delta;
+    UC Alpha;
+    UC Beta;
+    UC Gamma;
+    UC Delta;
     
     float sigmoid;
     char signature;
 } Artifact;
 
-char *greekAlphabet[21] = {
-        "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu",
-        "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Phi", "Chi", "Psi", "Omega"
-    };
+char *type[20] = {
+        "Epsilon", "Zeta", "Eta", "Theta", 
+        "Iota", "Kappa", "Lambda", "Mu",
+        "Nu", "Xi", "Omicron", "Pi", 
+        "Rho", "Sigma", "Tau", "Upsilon", 
+        "Phi", "Chi", "Psi", "Omega"
+};
  
-void Control( void* function() ){
-    function();
+void Control( void* function(), Artifact state){
+    function(state);
 }
 
 void* Alpha( Artifact state ){
@@ -38,12 +41,12 @@ void* Delta( Artifact state ){
 }
 
 int main(){
-    Artifact test = { 'A', 'B', 'G', 'D', 0.5, greekAlphabet[15] };
-
-    Control( Alpha(test) );
-    Control( Beta(test) );
-    Control( Gamma(test) );
-    Control( Delta(test) );
+    Artifact test = { 'A', 'B', 'G', 'D', 0.5, *type[15] };
+    
+    Control( Alpha, test );
+    Control( Beta, test );
+    Control( Gamma, test );
+    Control( Delta, test );
 
     return 0;
 }
