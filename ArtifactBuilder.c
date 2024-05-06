@@ -32,7 +32,7 @@ char* Buffer();
 Artifact Maker(UC Alpha, UC Beta, UC Gamma, UC Delta);
 
 void Begin(char* (*function)()); 
-
+///
 int main(){
     Begin(Buffer);
     
@@ -45,7 +45,7 @@ int main(){
 
     return 0;
 }
-
+///
 void Control(void (*function)(Artifact), Artifact state){
     function(state);
 }
@@ -80,5 +80,6 @@ void Begin(char* (*function)()){
 
 Artifact Maker(UC Alpha, UC Beta, UC Gamma, UC Delta){
     Artifact artifact = { Alpha, Beta, Gamma, Delta };
+    artifact.signature = *type[0]; // temporary
     return artifact;
 }
