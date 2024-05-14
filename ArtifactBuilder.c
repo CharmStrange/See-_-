@@ -22,7 +22,8 @@ char *type[21] = {
         "Phi", "Chi", "Psi", "Omega"
 };
 
-void Control(void (*function)(Artifact), Artifact state); 
+// Functions, Forward Declarations
+void Control(void (*function)(Artifact), const Artifact state); 
 
 void Alpha(Artifact state);
 void Beta(Artifact state);
@@ -31,9 +32,12 @@ void Delta(Artifact state);
 
 char* Buffer(); 
 
+void Begin(char* (*function)()); 
+
 Artifact Maker(UC Alpha, UC Beta, UC Gamma, UC Delta);
 
-void Begin(char* (*function)()); 
+Artifact Build_Artifact(const Artifact before, void (*function)());
+
 ///
 int main(){
     Begin(Buffer);
@@ -48,23 +52,23 @@ int main(){
     return 0;
 }
 ///
-void Control(void (*function)(Artifact), Artifact state){
+void Control(void (*function)(Artifact), const Artifact state){
     function(state);
 }
 
-void Alpha(Artifact state){
+void Alpha(const Artifact state){
     printf("Alpha: %c\n", state.Alpha);
 }
 
-void Beta(Artifact state){
+void Beta(const Artifact state){
     printf("Beta: %c\n", state.Beta);
 }
 
-void Gamma(Artifact state){
+void Gamma(const Artifact state){
     printf("Gamma: %c\n", state.Gamma);
 }
 
-void Delta(Artifact state){
+void Delta(const Artifact state){
     printf("Delta: %c\n", state.Delta);
 }
 
@@ -84,4 +88,10 @@ Artifact Maker(UC Alpha, UC Beta, UC Gamma, UC Delta){
     Artifact artifact = { Alpha, Beta, Gamma, Delta };
     artifact.signature = *type[0]; // temporary
     return artifact;
+}
+
+Artifact Build_Artifact(const Artifact before, void (*function)()){
+    Artifact after = before;
+    //functions
+    return after;
 }
