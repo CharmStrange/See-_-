@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+#define SIZE 50
+
 typedef unsigned char UC;
 typedef struct Artifact{
     UC Alpha;
@@ -67,14 +69,14 @@ void Delta(Artifact state){
 }
 
 char* Buffer(){
-    char* buffer = (char*)malloc(100 * sizeof(char)); 
+    char* buffer = (char*)malloc(SIZE * sizeof(char)); 
     return buffer;
 }
 
 void Begin(char* (*function)()){ 
     char* buffer = function();
     printf("Type Something: ");
-    fgets(buffer, 100, stdin); 
+    fgets(buffer, SIZE, stdin); 
     printf("You typed: %s\n", buffer); 
 }
 
