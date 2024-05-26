@@ -32,4 +32,11 @@
 
 ---
 
+[World Trade Simulator](WTS.c)
+
+![image](https://github.com/CharmStrange/See/assets/105769152/a5751dc0-0fec-4b55-a848-0d00dc77a1ba)
+
+
+---
+
 </div>
