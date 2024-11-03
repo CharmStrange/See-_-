@@ -4,9 +4,7 @@
 
 ![image](https://github.com/CharmStrange/See/assets/105769152/f6895700-dbca-470e-bfe1-a57f6e6e42d8)
 
----
----
----
+...
 
 [Basic Fishing Simulator](PixelFishing.c)
 
@@ -36,6 +34,11 @@
 
 ![image](https://github.com/CharmStrange/See/assets/105769152/a5751dc0-0fec-4b55-a848-0d00dc77a1ba)
 
+---
+
+[Virtual Memory control](UsefulFrame.c)
+
+![image](https://github.com/user-attachments/assets/db3f8a08-b91c-444d-9b76-03410b44537e)
 
 ---
 
