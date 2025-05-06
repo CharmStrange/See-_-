@@ -29,7 +29,7 @@ void display_status(Player *player, City cities[], Item items[]);
 void process_action(Player *player, City cities[], Item items[]);
 
 int main() {
-    City cities[NUM_CITIES] = {{"CityA"}, {"CityB"}, {"CityC"}, {"CityD"}, {"CityE"}};
+    City cities[NUM_CITIES] = {{"Tong"}, {"Delnya"}, {"Sipo"}, {"Belga"}, {"Tomadol"}};
     Item items[NUM_ITEMS] = {{"Item1", 10}, {"Item2", 20}, {"Item3", 30}, {"Item4", 40}};
     Player player;
 
@@ -49,7 +49,7 @@ int main() {
 void initialize_game(City cities[], Item items[], Player *player) {
     srand(time(0));
     player->capital = 1000;
-    player->cargo_capacity = 10;
+    player->cargo_capacity = 15;
     strcpy(player->current_city, cities[0].name);
     for (int i = 0; i < NUM_ITEMS; i++) {
         player->inventory[i] = 0;
